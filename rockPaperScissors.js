@@ -1,6 +1,3 @@
-let computerScore = 0;
-let humanScore = 0;
-
 // Helper functions
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -25,38 +22,77 @@ function playRound(computerChoice, humanChoice) {
 
     if(computerChoice == "rock") {
         if(humanChoice == "rock") {
-            console.log("Tie");
+            console.log("Tie this round");
+            
+            return "tie";
         } else if(humanChoice == "paper") {
-            console.log("Human wins");
-            ++humanScore;
+            console.log("Human wins this round");
+
+            return "human wins";
         } else if(humanChoice == "scissor") {
-            console.log("Computer wins");
-            ++computerScore;
+            console.log("Computer wins this round");
+
+            return "computer wins";
         }
+
     } else if((computerChoice == "paper")) {
         if(humanChoice == "rock") {
-            console.log("Computer wins");
-            ++computerScore;
+            console.log("Computer wins this round");
+
+            return "computer wins";
         } else if(humanChoice == "paper") {
-            console.log("Tie");
+            console.log("Tie this round");
+                        
+            return "tie";
         } else if(humanChoice == "scissor") {
-            console.log("Human wins");
-            ++humanScore;
+            console.log("Human wins this round");
+
+            return "human wins";
         }
+
     } else if((computerChoice == "scissor")) {
         if(humanChoice == "rock") {
-            console.log("Human wins");
-            ++humanScore;
+            console.log("Human wins this round");
+
+            return "human wins";
         } else if(humanChoice == "paper") {
-            console.log("Computer wins");
-            ++computerScore;
+            console.log("Computer wins this round");
+
+            return "computer wins";
         } else if(humanChoice == "scissor") {
-            console.log("Tie");
+            console.log("Tie this round");
+                        
+            return "tie";
         }
     }
 }
 
 // Main game loop WIP
-computer = getComputerChoice();
-human = getHumanChoice()
-playRound(x, y);
+function playGame() {
+    let computerScore = 0;
+    let humanScore = 0;
+
+    for(let round = 1; round <= 5; ++round) {
+        computerChoice = getComputerChoice();
+        humanChoice = getHumanChoice()
+        winner = playRound(computerChoice, humanChoice);
+
+        if(winner == "tie") {
+            // pass if tied
+        } else if(winner == "human wins") {
+            ++humanScore;
+        } else if(winner == "computer wins") {
+            ++computerScore;
+        }
+    }  
+
+    if(humanScore > computerScore) {
+        console.log("Human has won it all!");
+    } else if(computerScore > humanScore) {
+        console.log("Computer has won it all!");
+    } else {
+        console.log("Tied, no one won after 5 rounds...");
+    }
+}
+
+playGame();
