@@ -67,7 +67,7 @@ function playRound(computerChoice, humanChoice) {
     }
 }
 
-// Main game loop WIP
+// Main game loop
 function playGame() {
     let computerScore = 0;
     let humanScore = 0;
