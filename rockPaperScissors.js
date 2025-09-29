@@ -25,7 +25,7 @@ function checkWinner() {
     }
     if(humanScore >= 5) {
         divContainer.textContent = "";
-        
+
         const paragraph = document.createElement("p");
         paragraph.textContent = "Human WINS";
         divContainer.appendChild(paragraph);
@@ -88,16 +88,23 @@ function playRound(computerChoice, humanChoice) {
         }
     }
 
+    humanScoreParagraph.textContent = humanScore;
+    computerScoreParagraph.textContent = computerScore;
     checkWinner();
 }
 
-
-// DOM minipulation
+// DOM
+// DOM Selectors
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 
 const divContainer = document.querySelector("#results");
+
+const humanScoreParagraph = document.querySelector("#score #human-score p");
+const computerScoreParagraph = document.querySelector("#score #computer-score p");
+
+// DOM Event Listeners
 rockButton.addEventListener("click", function() {
     divContainer.textContent = "";
 

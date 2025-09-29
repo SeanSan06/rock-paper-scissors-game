@@ -7,9 +7,27 @@ body {
     align-items: center;
 }
 
+#score {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+#score #human-score p {
+    font-size: 48px;
+    margin: 0px;
+}
+
+#score #computer-score p {
+    font-size: 48px;
+    margin: 0px;
+}
+
 #title {
     display: flex;
-    size: 20%;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
 }
 
 #buttons {
