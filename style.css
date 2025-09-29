@@ -1,0 +1,23 @@
+/* Body */
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    align-items: center;
+}
+
+#title {
+    display: flex;
+    size: 20%;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+}

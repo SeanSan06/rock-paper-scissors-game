@@ -16,12 +16,16 @@ function getComputerChoice() {
 function checkWinner() {
     console.log(humanScore);
     if(computerScore >= 5) {
+        divContainer.textContent = "";
+        
         const paragraph = document.createElement("p");
         paragraph.textContent = "Computer WINS";
         divContainer.appendChild(paragraph);
         disableAllButtons()
     }
     if(humanScore >= 5) {
+        divContainer.textContent = "";
+        
         const paragraph = document.createElement("p");
         paragraph.textContent = "Human WINS";
         divContainer.appendChild(paragraph);
@@ -93,8 +97,10 @@ const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 
-const divContainer = document.querySelector("div");
+const divContainer = document.querySelector("#results");
 rockButton.addEventListener("click", function() {
+    divContainer.textContent = "";
+
     const paragraph = document.createElement("p");
     paragraph.textContent = "ROCK";
     divContainer.appendChild(paragraph);
@@ -103,6 +109,8 @@ rockButton.addEventListener("click", function() {
 });
 
 paperButton.addEventListener("click", function() {
+    divContainer.textContent = "";
+
     const paragraph = document.createElement("p");
     paragraph.textContent = "PAPER";
     divContainer.appendChild(paragraph);
@@ -111,6 +119,8 @@ paperButton.addEventListener("click", function() {
 });
 
 scissorsButton.addEventListener("click", function() {
+    divContainer.textContent = "";
+
     const paragraph = document.createElement("p");
     paragraph.textContent = "SCISSORS";
     divContainer.appendChild(paragraph);
