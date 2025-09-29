@@ -1,3 +1,6 @@
+let computerScore = 0;
+let humanScore = 0;
+
 // Helper functions
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -10,10 +13,28 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let userInput = prompt("Choose rock, paper, or scissor");
+function checkWinner() {
+    console.log(humanScore);
+    if(computerScore >= 5) {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = "Computer WINS";
+        divContainer.appendChild(paragraph);
+        disableAllButtons()
+    }
+    if(humanScore >= 5) {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = "Human WINS";
+        divContainer.appendChild(paragraph);
+        disableAllButtons();
+    }
+}
 
-    return userInput;
+function disableAllButtons() {
+    const allButtons = document.querySelectorAll("button");
+
+    allButtons.forEach(button => {
+        button.disabled = true;
+    });
 }
 
 function playRound(computerChoice, humanChoice) {
@@ -24,75 +45,75 @@ function playRound(computerChoice, humanChoice) {
         if(humanChoice == "rock") {
             console.log("Tie this round");
             
-            return "tie";
         } else if(humanChoice == "paper") {
             console.log("Human wins this round");
 
-            return "human wins";
+            ++humanScore;
         } else if(humanChoice == "scissor") {
             console.log("Computer wins this round");
 
-            return "computer wins";
+            ++computerScore;
         }
 
     } else if((computerChoice == "paper")) {
         if(humanChoice == "rock") {
             console.log("Computer wins this round");
-
-            return "computer wins";
+            
+            ++computerScore;
         } else if(humanChoice == "paper") {
             console.log("Tie this round");
                         
-            return "tie";
         } else if(humanChoice == "scissor") {
             console.log("Human wins this round");
 
-            return "human wins";
+            ++humanScore;
         }
 
     } else if((computerChoice == "scissor")) {
         if(humanChoice == "rock") {
             console.log("Human wins this round");
 
-            return "human wins";
+            ++humanScore;
         } else if(humanChoice == "paper") {
             console.log("Computer wins this round");
-
-            return "computer wins";
+            
+            ++computerScore;
         } else if(humanChoice == "scissor") {
             console.log("Tie this round");
                         
-            return "tie";
         }
     }
+
+    checkWinner();
 }
 
-// Main game loop
-function playGame() {
-    let computerScore = 0;
-    let humanScore = 0;
 
-    for(let round = 1; round <= 5; ++round) {
-        computerChoice = getComputerChoice();
-        humanChoice = getHumanChoice()
-        winner = playRound(computerChoice, humanChoice);
+// DOM minipulation
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
 
-        if(winner == "tie") {
-            // pass if tied
-        } else if(winner == "human wins") {
-            ++humanScore;
-        } else if(winner == "computer wins") {
-            ++computerScore;
-        }
-    }  
+const divContainer = document.querySelector("div");
+rockButton.addEventListener("click", function() {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = "ROCK";
+    divContainer.appendChild(paragraph);
 
-    if(humanScore > computerScore) {
-        console.log("Human has won it all!");
-    } else if(computerScore > humanScore) {
-        console.log("Computer has won it all!");
-    } else {
-        console.log("Tied, no one won after 5 rounds...");
-    }
-}
+    playRound(getComputerChoice(), "rock");
+});
 
-playGame();
+paperButton.addEventListener("click", function() {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = "PAPER";
+    divContainer.appendChild(paragraph);
+
+    playRound(getComputerChoice(), "rock");
+});
+
+scissorsButton.addEventListener("click", function() {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = "SCISSORS";
+    divContainer.appendChild(paragraph);
+
+    playRound(getComputerChoice(), "rock");
+});
