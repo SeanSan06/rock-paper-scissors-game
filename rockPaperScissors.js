@@ -45,49 +45,63 @@ function playRound(computerChoice, humanChoice) {
     computerChoice = computerChoice.toLowerCase();
     humanChoice = humanChoice.toLowerCase();
 
+    const paragraphWinner = document.createElement("p");
     if(computerChoice == "rock") {
         if(humanChoice == "rock") {
-            console.log("Tie this round");
+            paragraphWinner.textContent = ("Tie this round");
             
         } else if(humanChoice == "paper") {
-            console.log("Human wins this round");
+            paragraphWinner.textContent = ("Human wins this round");
 
             ++humanScore;
         } else if(humanChoice == "scissor") {
-            console.log("Computer wins this round");
+            paragraphWinner.textContent = ("Computer wins this round");
 
             ++computerScore;
         }
 
     } else if((computerChoice == "paper")) {
         if(humanChoice == "rock") {
-            console.log("Computer wins this round");
+            paragraphWinner.textContent = ("Computer wins this round");
             
             ++computerScore;
         } else if(humanChoice == "paper") {
-            console.log("Tie this round");
+            paragraphWinner.textContent = ("Tie this round");
                         
         } else if(humanChoice == "scissor") {
-            console.log("Human wins this round");
+            paragraphWinner.textContent = ("Human wins this round");
 
             ++humanScore;
         }
 
     } else if((computerChoice == "scissor")) {
         if(humanChoice == "rock") {
-            console.log("Human wins this round");
+            paragraphWinner.textContent = ("Human wins this round");
 
             ++humanScore;
         } else if(humanChoice == "paper") {
-            console.log("Computer wins this round");
+            paragraphWinner.textContent = ("Computer wins this round");
             
             ++computerScore;
         } else if(humanChoice == "scissor") {
-            console.log("Tie this round");
+            paragraphWinner.textContent = ("Tie this round");
                         
         }
     }
 
+    // Display what moves were made
+    const paragraphPlayer = document.createElement("p");
+    paragraphPlayer.textContent = "Player player: " + humanChoice;
+    divContainer.appendChild(paragraphPlayer);
+
+    const paragraphComputer = document.createElement("p");
+    paragraphComputer.textContent = "Computer player: " + computerChoice;
+    divContainer.appendChild(paragraphComputer);
+
+    // Show winner of round
+    divContainer.appendChild(paragraphWinner);
+
+    // Update score board
     humanScoreParagraph.textContent = humanScore;
     computerScoreParagraph.textContent = computerScore;
     checkWinner();
@@ -108,29 +122,17 @@ const computerScoreParagraph = document.querySelector("#score #computer-score p"
 rockButton.addEventListener("click", function() {
     divContainer.textContent = "";
 
-    const paragraph = document.createElement("p");
-    paragraph.textContent = "ROCK";
-    divContainer.appendChild(paragraph);
-
     playRound(getComputerChoice(), "rock");
 });
 
 paperButton.addEventListener("click", function() {
     divContainer.textContent = "";
 
-    const paragraph = document.createElement("p");
-    paragraph.textContent = "PAPER";
-    divContainer.appendChild(paragraph);
-
-    playRound(getComputerChoice(), "rock");
+    playRound(getComputerChoice(), "scissor");
 });
 
 scissorsButton.addEventListener("click", function() {
     divContainer.textContent = "";
 
-    const paragraph = document.createElement("p");
-    paragraph.textContent = "SCISSORS";
-    divContainer.appendChild(paragraph);
-
-    playRound(getComputerChoice(), "rock");
+    playRound(getComputerChoice(), "paper");
 });
