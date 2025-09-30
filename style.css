@@ -5,6 +5,7 @@ body {
     margin: 0px;
     font-family: 'Roboto', sans-serif;
     align-items: center;
+    background-color: lightgoldenrodyellow;
 }
 
 /* Title area */
@@ -29,11 +30,32 @@ body {
     background-color: lightskyblue;
 }
 
+#score #human-score h2 {
+    font-size: 48px;
+    margin: 0px;
+    font-size: 4.5vw;
+    margin: 8px;
+    text-align: center;
+
+    background-color: rgb(161, 219, 255);
+}
+
+#score #computer-score h2 {
+    font-size: 48px;
+    margin: 0px;
+    font-size: 4.5vw;
+    margin: 8px;
+    text-align: center;
+
+    background-color: rgb(161, 219, 255);
+}
+
 #score #human-score p {
     font-size: 48px;
     margin: 0px;
-    font-size: 6vw;
+    font-size: 4.5vw;
     margin: 8px;
+    text-align: center;
 
     background-color: rgb(161, 219, 255);
 }
@@ -41,8 +63,9 @@ body {
 #score #computer-score p {
     font-size: 48px;
     margin: 0px;
-    font-size: 6vw;
+    font-size: 4.5vw;
     margin: 8px;
+    text-align: center;
 
     background-color: rgb(161, 219, 255);
 }
@@ -51,6 +74,8 @@ body {
 #buttons {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 #buttons p {

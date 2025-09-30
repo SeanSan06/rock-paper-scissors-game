@@ -19,7 +19,7 @@ function checkWinner() {
         divContainer.textContent = "";
         
         const paragraph = document.createElement("p");
-        paragraph.textContent = "Computer WINS";
+        paragraph.textContent = "Computer won! :(";
         divContainer.appendChild(paragraph);
         disableAllButtons()
     }
@@ -27,7 +27,7 @@ function checkWinner() {
         divContainer.textContent = "";
 
         const paragraph = document.createElement("p");
-        paragraph.textContent = "Human WINS";
+        paragraph.textContent = "You won!";
         divContainer.appendChild(paragraph);
         disableAllButtons();
     }
@@ -51,7 +51,7 @@ function playRound(computerChoice, humanChoice) {
             paragraphWinner.textContent = ("Tie this round");
             
         } else if(humanChoice == "paper") {
-            paragraphWinner.textContent = ("Human wins this round");
+            paragraphWinner.textContent = ("You win this round");
 
             ++humanScore;
         } else if(humanChoice == "scissor") {
@@ -69,14 +69,14 @@ function playRound(computerChoice, humanChoice) {
             paragraphWinner.textContent = ("Tie this round");
                         
         } else if(humanChoice == "scissor") {
-            paragraphWinner.textContent = ("Human wins this round");
+            paragraphWinner.textContent = ("You win this round");
 
             ++humanScore;
         }
 
     } else if((computerChoice == "scissor")) {
         if(humanChoice == "rock") {
-            paragraphWinner.textContent = ("Human wins this round");
+            paragraphWinner.textContent = ("You win this round");
 
             ++humanScore;
         } else if(humanChoice == "paper") {
