@@ -14,6 +14,7 @@ body {
     justify-content: center;
     width: 100%;
     font-size: 6vw;
+    margin-top: 0px;
     margin-bottom: 0px;
 }
 
@@ -22,18 +23,28 @@ body {
     display: flex;
     flex-direction: row;
     gap: 16px;
+    margin: 8px;
+    
+    border: solid 2px rgb(108, 199, 255);
+    background-color: lightskyblue;
 }
 
 #score #human-score p {
     font-size: 48px;
     margin: 0px;
     font-size: 6vw;
+    margin: 8px;
+
+    background-color: rgb(161, 219, 255);
 }
 
 #score #computer-score p {
     font-size: 48px;
     margin: 0px;
     font-size: 6vw;
+    margin: 8px;
+
+    background-color: rgb(161, 219, 255);
 }
 
 /* RPS buttons area */
