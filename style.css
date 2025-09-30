@@ -1,4 +1,4 @@
-/* Body */
+/* Body area */
 body {
     display: flex;
     flex-direction: column;
@@ -7,6 +7,15 @@ body {
     align-items: center;
 }
 
+/* Title area */
+#title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Score board area */
 #score {
     display: flex;
     flex-direction: row;
@@ -23,18 +32,21 @@ body {
     margin: 0px;
 }
 
-#title {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-}
-
+/* RPS buttons area */
 #buttons {
     display: flex;
     flex-direction: row;
 }
 
+img {
+    /* Lets pixel imgs scale to any size with no blurring */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    width: 200px; 
+    height:200px;
+}
+
+/* Round results area */
 #results {
     display: flex;
     flex-direction: column;
