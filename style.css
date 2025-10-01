@@ -20,6 +20,11 @@ body {
 }
 
 /* Score board area */
+#scoreArea {
+    display: flex;
+    flex-direction: row;
+}
+
 #score {
     display: flex;
     flex-direction: row;

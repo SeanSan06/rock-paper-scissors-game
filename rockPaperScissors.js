@@ -46,17 +46,26 @@ function playRound(computerChoice, humanChoice) {
     humanChoice = humanChoice.toLowerCase();
 
     const paragraphWinner = document.createElement("p");
+    
     if(computerChoice == "rock") {
         if(humanChoice == "rock") {
             paragraphWinner.textContent = ("Tie this round");
             
+            winnerHuman.textContent = "TIED";
+            winnerComputer.textContent = "TIED";
+            scoreArea.insertBefore(winnerHuman, scoreChild);
+            scoreArea.append(winnerComputer);
         } else if(humanChoice == "paper") {
             paragraphWinner.textContent = ("You win this round");
-
+            
+            winnerHuman.textContent = "You win";
+            scoreArea.insertBefore(winnerHuman, scoreChild);
             ++humanScore;
         } else if(humanChoice == "scissor") {
             paragraphWinner.textContent = ("Computer wins this round");
 
+            winnerComputer.textContent = "Computer wins";
+            scoreArea.append(winnerComputer);
             ++computerScore;
         }
 
@@ -64,13 +73,21 @@ function playRound(computerChoice, humanChoice) {
         if(humanChoice == "rock") {
             paragraphWinner.textContent = ("Computer wins this round");
             
+            winnerComputer.textContent = "Computer wins";
+            scoreArea.append(winnerComputer);
             ++computerScore;
         } else if(humanChoice == "paper") {
             paragraphWinner.textContent = ("Tie this round");
                         
+            winnerHuman.textContent = "TIED";
+            winnerComputer.textContent = "TIED";
+            scoreArea.insertBefore(winnerHuman, scoreChild);
+            scoreArea.append(winnerComputer);
         } else if(humanChoice == "scissor") {
             paragraphWinner.textContent = ("You win this round");
 
+            winnerHuman.textContent = "You win";
+            scoreArea.insertBefore(winnerHuman, scoreChild);
             ++humanScore;
         }
 
@@ -78,14 +95,22 @@ function playRound(computerChoice, humanChoice) {
         if(humanChoice == "rock") {
             paragraphWinner.textContent = ("You win this round");
 
+            winnerHuman.textContent = "You win";
+            scoreArea.insertBefore(winnerHuman, scoreChild);
             ++humanScore;
         } else if(humanChoice == "paper") {
             paragraphWinner.textContent = ("Computer wins this round");
             
+            winnerComputer.textContent = "Computer wins";
+            scoreArea.append(winnerComputer);
             ++computerScore;
         } else if(humanChoice == "scissor") {
             paragraphWinner.textContent = ("Tie this round");
-                        
+                      
+            winnerHuman.textContent = "TIED";
+            winnerComputer.textContent = "TIED";
+            scoreArea.insertBefore(winnerHuman, scoreChild);
+            scoreArea.append(winnerComputer);
         }
     }
 
@@ -118,21 +143,34 @@ const divContainer = document.querySelector("#results");
 const humanScoreParagraph = document.querySelector("#score #human-score p");
 const computerScoreParagraph = document.querySelector("#score #computer-score p");
 
+const scoreArea = document.querySelector("#scoreArea");
+const scoreChild = document.querySelector("#score");
+
 // DOM Event Listeners
 rockButton.addEventListener("click", function() {
     divContainer.textContent = "";
+    winnerHuman.textContent = "";
+    winnerComputer.textContent = "";
 
     playRound(getComputerChoice(), "rock");
 });
 
 paperButton.addEventListener("click", function() {
     divContainer.textContent = "";
+    winnerHuman.textContent = "";
+    winnerComputer.textContent = "";
 
     playRound(getComputerChoice(), "scissor");
 });
 
 scissorsButton.addEventListener("click", function() {
     divContainer.textContent = "";
+    winnerHuman.textContent = "";
+    winnerComputer.textContent = "";
 
     playRound(getComputerChoice(), "paper");
 });
+
+// DOM elements
+const winnerHuman = document.createElement("p");
+const winnerComputer = document.createElement("p");
