@@ -91,6 +91,30 @@ img {
     height:200px;
 }
 
+@media (max-width: 650px) {
+    #buttons {
+        display: flex;
+        flex-direction: column;
+        width: 65%;
+        gap: 16px;
+        align-items: space-evenly;
+    }
+
+    #buttons p {
+        font-size: 5vw;
+        margin: 4px;
+    }
+
+    img {
+        /* Lets pixel imgs scale to any size with no blurring */
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+        width: 100px; 
+        height: 100px;
+    }
+
+}
+
 /* Round results area */
 #results {
     display: flex;
