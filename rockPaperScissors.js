@@ -20,6 +20,7 @@ function checkWinner() {
         
         const paragraph = document.createElement("p");
         paragraph.textContent = "Computer won! :(";
+        paragraph.style.fontSize = "36px";
         divContainer.appendChild(paragraph);
         disableAllButtons()
     }
@@ -27,7 +28,8 @@ function checkWinner() {
         divContainer.textContent = "";
 
         const paragraph = document.createElement("p");
-        paragraph.textContent = "You won!";
+        paragraph.textContent = "You won!!! :)";
+        paragraph.style.fontSize = "36px";
         divContainer.appendChild(paragraph);
         disableAllButtons();
     }
@@ -145,6 +147,8 @@ function playRound(computerChoice, humanChoice) {
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
+
+const divContainer = document.querySelector("#results");
 
 const humanScoreParagraph = document.querySelector("#score #human-score p");
 const computerScoreParagraph = document.querySelector("#score #computer-score p");
