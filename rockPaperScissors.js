@@ -48,97 +48,91 @@ function playRound(computerChoice, humanChoice) {
     const paragraphWinner = document.createElement("p");
 
     // Add a background to these moves
-    winnerHuman.style.backgroundColor = "lightblue";
+    winnerHuman.style.backgroundColor = "lightskyblue";
     winnerHuman.style.height = "80px";
     winnerHuman.style.lineHeight = "80px";
     winnerHuman.style.padding = "8px";
 
-    winnerComputer.style.backgroundColor = "lightblue";
+    winnerComputer.style.backgroundColor = "lightskyblue";
     winnerComputer.style.height = "80px";
     winnerComputer.style.lineHeight = "80px";
     winnerComputer.style.padding = "8px";
     
     if(computerChoice == "rock") {
         if(humanChoice == "rock") {
-            paragraphWinner.textContent = ("Tie this round");
-            
             winnerHuman.textContent = "TIED";
             winnerComputer.textContent = "TIED";
+
             scoreArea.insertBefore(winnerHuman, scoreChild);
             scoreArea.append(winnerComputer);
         } else if(humanChoice == "paper") {
-            paragraphWinner.textContent = ("You win this round");
-            
+            winnerComputer.style.padding = "0px";
+
             winnerHuman.textContent = "You win";
+
             scoreArea.insertBefore(winnerHuman, scoreChild);
+
             ++humanScore;
         } else if(humanChoice == "scissor") {
-            paragraphWinner.textContent = ("Computer wins this round");
             winnerHuman.style.padding = "0px";
 
             winnerComputer.textContent = "Computer wins";
+
             scoreArea.append(winnerComputer);
+
             ++computerScore;
         }
 
     } else if((computerChoice == "paper")) {
         if(humanChoice == "rock") {
-            paragraphWinner.textContent = ("Computer wins this round");
             winnerHuman.style.padding = "0px";
             
             winnerComputer.textContent = "Computer wins";
+
             scoreArea.append(winnerComputer);
+
             ++computerScore;
         } else if(humanChoice == "paper") {
-            paragraphWinner.textContent = ("Tie this round");
-                        
             winnerHuman.textContent = "TIED";
             winnerComputer.textContent = "TIED";
+
             scoreArea.insertBefore(winnerHuman, scoreChild);
             scoreArea.append(winnerComputer);
         } else if(humanChoice == "scissor") {
-            paragraphWinner.textContent = ("You win this round");
+            winnerComputer.style.padding = "0px";
 
             winnerHuman.textContent = "You win";
+
             scoreArea.insertBefore(winnerHuman, scoreChild);
+
             ++humanScore;
         }
 
     } else if((computerChoice == "scissor")) {
         if(humanChoice == "rock") {
-            paragraphWinner.textContent = ("Human wins this round");
-
+            winnerComputer.style.padding = "0px";
+            
             winnerHuman.textContent = "You win";
+
             scoreArea.insertBefore(winnerHuman, scoreChild);
+
             ++humanScore;
         } else if(humanChoice == "paper") {
-            paragraphWinner.textContent = ("Computer wins this round");
             winnerHuman.style.padding = "0px";
             
             winnerComputer.textContent = "Computer wins";
+
             scoreArea.append(winnerComputer);
+
             ++computerScore;
         } else if(humanChoice == "scissor") {
-            paragraphWinner.textContent = ("Tie this round");
-                      
             winnerHuman.textContent = "TIED";
             winnerComputer.textContent = "TIED";
+
             scoreArea.insertBefore(winnerHuman, scoreChild);
             scoreArea.append(winnerComputer);
         }
     }
-
-    // Display what moves were made
-    const paragraphPlayer = document.createElement("p");
-    paragraphPlayer.textContent = "Player player: " + humanChoice;
-    divContainer.appendChild(paragraphPlayer);
-
-    const paragraphComputer = document.createElement("p");
-    paragraphComputer.textContent = "Computer player: " + computerChoice;
-    divContainer.appendChild(paragraphComputer);
-
-    // Show winner of round
-    divContainer.appendChild(paragraphWinner);
 
     // Update score board
     humanScoreParagraph.textContent = humanScore;
@@ -152,8 +146,6 @@ const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 
-const divContainer = document.querySelector("#results");
-
 const humanScoreParagraph = document.querySelector("#score #human-score p");
 const computerScoreParagraph = document.querySelector("#score #computer-score p");
 
@@ -162,7 +154,6 @@ const scoreChild = document.querySelector("#score");
 
 // DOM Event Listeners
 rockButton.addEventListener("click", function() {
-    divContainer.textContent = "";
     winnerHuman.textContent = "";
     winnerComputer.textContent = "";
 
@@ -170,7 +161,6 @@ rockButton.addEventListener("click", function() {
 });
 
 paperButton.addEventListener("click", function() {
-    divContainer.textContent = "";
     winnerHuman.textContent = "";
     winnerComputer.textContent = "";
 
@@ -178,7 +168,6 @@ paperButton.addEventListener("click", function() {
 });
 
 scissorsButton.addEventListener("click", function() {
-    divContainer.textContent = "";
     winnerHuman.textContent = "";
     winnerComputer.textContent = "";
 
