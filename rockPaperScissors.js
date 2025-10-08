@@ -46,6 +46,17 @@ function playRound(computerChoice, humanChoice) {
     humanChoice = humanChoice.toLowerCase();
 
     const paragraphWinner = document.createElement("p");
+
+    // Add a background to these moves
+    winnerHuman.style.backgroundColor = "lightblue";
+    winnerHuman.style.height = "80px";
+    winnerHuman.style.lineHeight = "80px";
+    winnerHuman.style.padding = "8px";
+
+    winnerComputer.style.backgroundColor = "lightblue";
+    winnerComputer.style.height = "80px";
+    winnerComputer.style.lineHeight = "80px";
+    winnerComputer.style.padding = "8px";
     
     if(computerChoice == "rock") {
         if(humanChoice == "rock") {
@@ -63,6 +74,7 @@ function playRound(computerChoice, humanChoice) {
             ++humanScore;
         } else if(humanChoice == "scissor") {
             paragraphWinner.textContent = ("Computer wins this round");
+            winnerHuman.style.padding = "0px";
 
             winnerComputer.textContent = "Computer wins";
             scoreArea.append(winnerComputer);
@@ -72,6 +84,7 @@ function playRound(computerChoice, humanChoice) {
     } else if((computerChoice == "paper")) {
         if(humanChoice == "rock") {
             paragraphWinner.textContent = ("Computer wins this round");
+            winnerHuman.style.padding = "0px";
             
             winnerComputer.textContent = "Computer wins";
             scoreArea.append(winnerComputer);
@@ -100,6 +113,7 @@ function playRound(computerChoice, humanChoice) {
             ++humanScore;
         } else if(humanChoice == "paper") {
             paragraphWinner.textContent = ("Computer wins this round");
+            winnerHuman.style.padding = "0px";
             
             winnerComputer.textContent = "Computer wins";
             scoreArea.append(winnerComputer);
